@@ -94,4 +94,8 @@ $(document).ready(function() {
 
     $("#receipt").html(receipt);
   });
+  // order confirmation / delivery
+  // order more
+  // adjust prices for sizes
+  // UI
 });
