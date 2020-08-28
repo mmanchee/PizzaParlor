@@ -43,6 +43,9 @@ function Pizza(first, last, phone, size, veggie, meat, other) {
   this.meat = meat,
   this.other = other
 }
+function totalPrice(orderNum) {
+
+}
 
 function receiptHTML(orderNum) {
   isNaN(orderNum) ? orderNum = (pizzaParlor.orderNum - 1) : true;
@@ -89,12 +92,22 @@ $(document).ready(function() {
     });
     
     let pizza = new Pizza(first, last, phone, size, veggie, meat, other);
-    pizzaParlor.addPizza(pizza);
-    let receipt = receiptHTML();
-
+    let number = pizzaParlor.addPizza(pizza);
+    
+    let receipt = receiptHTML(number);
+    
     $("#receipt").html(receipt);
   });
   // order confirmation / delivery
+  $("#rec-option").click(function(event) {
+    event.preventDefault();
+    let recOption = $("#rec-option").val();
+    let format = receive(recOption);
+  })
+  $("#confirm-order").click(function(event) {
+    event.preventDefault();
+    let recOption = $("#payment-method").val()
+  })
   // order more
   // adjust prices for sizes
   // UI
