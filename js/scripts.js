@@ -1,12 +1,19 @@
-// Business Logic
+// Business Logic PizzaParlor
+function PizzaParlor() {
+  this.pizzas = [];
+}
 
 
-// Business Logic
 
+
+// Business Logic Pizza
+
+let pizzaParlor = new PizzaParlor();
 
 // Interface Logic
 $(document).ready(function() {
-  $("").click(function() {
+  $("#order-form").click(function(event) {
+    event.preventDefault();
 
   });
 });
