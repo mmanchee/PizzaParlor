@@ -5,14 +5,14 @@ function PizzaParlor() {
 }
 
 PizzaParlor.prototype.addPizza = function(pizza) {
-  pizza.orderNum = pizzaParlor.orderNumber();
-  pizza.price = pizzaParlor.pricing(pizza);
+  pizza.orderNum = this.orderNumber();
+  pizza.price = this.pricing(pizza);
   this.pizzas.push(pizza);
 }
 
 PizzaParlor.prototype.orderNumber = function() {
-  let order = this.orderNumber;
-  this.orderNumber++;
+  let order = this.orderNum;
+  this.orderNum++;
   return order;
 }
 
@@ -44,10 +44,11 @@ function Pizza(first, last, phone, size, veggie, meat, other) {
   this.other = other
 }
 
-receiptHTML(orderNum) {
+function receiptHTML(orderNum) {
   isNaN(orderNum) ? orderNum = (pizzaParlor.orderNum - 1) : true;
   let pizza = pizzaParlor.pizzas[orderNum];
-  let receipt = "Order: " orderNum + "<br>For: " + pizza.firstName + "<br><br>" + pizza.size + " pizza";
+  let receipt = "Order: " + orderNum + "<br>For: " + pizza.firstName + "<br><br>" + pizza.size + " pizza";
+  let total = pizza.price;
   pizza.veggie.forEach(function(veggie) {
     receipt += "<br>" + veggie;
   });
@@ -57,7 +58,9 @@ receiptHTML(orderNum) {
   pizza.other.forEach(function(other) {
     receipt += "<br>" + other;
   });
-  receipt += "<br><br> Total $ " + pizza.price;
+  total = total.toFixed(2);
+  total = total.toString();
+  receipt += "<br><br> Total $ " + total;
   return receipt;
 }
 
@@ -66,26 +69,29 @@ let pizzaParlor = new PizzaParlor();
 
 // Interface Logic
 $(document).ready(function() {
-  $("#order-form").click(function(event) {
+  $("#order-form").submit(function(event) {
     event.preventDefault();
     const first = $("#first-name").val();
     const last = $("#last-name").val();
     const phone = $("#phone-number").val();
     const size = $("#pizza-size").val();
+    let veggie = [];
+    let meat = [];
+    let other = [];
     $("input:checkbox[name=pizza-topping-veggie]:checked").each(function() {
-      const veggie.push($(this).val());
+      veggie.push($(this).val());
     });
     $("input:checkbox[name=pizza-topping-meat]:checked").each(function() {
-      const meat.push($(this).val());
+      meat.push($(this).val());
     });
     $("input:checkbox[name=pizza-topping-other]:checked").each(function() {
-      const other.push($(this).val());
+      other.push($(this).val());
     });
-
+    
     let pizza = new Pizza(first, last, phone, size, veggie, meat, other);
-
     pizzaParlor.addPizza(pizza);
     let receipt = receiptHTML();
-    $("#confirm-order").html(receipt);
+
+    $("#receipt").html(receipt);
   });
 });

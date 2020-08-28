@@ -15,9 +15,10 @@ A website for people to order a pizza with a selection of toppings.
 |  2. Pizza menu and inputs | inputs | JQuery Gets |
 |  3. Pizza Object constructor | new Pizza | pizza object |
 |  4. Pricing Function, based on size and toppings | pizza object | total price |
-|  5. TakePayment, accept payment and print receipt | payment input | receipt |
-|  6. OrderUp Function, FIFO orders | pizza in [0] ready | order up |
-|  7. Delivery Function, set time for delivery | address | delivery time |
+|  5. Receipt Function, create a receipt for user | order | receipt |
+|  6. TakePayment, accept payment and print receipt | payment input | receipt |
+|  7. OrderUp Function, FIFO orders | pizza in [0] ready | order up |
+|  8. Delivery Function, set time for delivery | address | delivery time |
 
 
 ## Setup/Installation Requirements
