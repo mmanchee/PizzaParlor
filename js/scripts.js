@@ -8,6 +8,7 @@ PizzaParlor.prototype.addPizza = function(pizza) {
   pizza.orderNum = this.orderNumber();
   pizza.price = this.pricing(pizza);
   this.pizzas.push(pizza);
+  return pizza.orderNum;
 }
 
 PizzaParlor.prototype.orderNumber = function() {
@@ -44,14 +45,21 @@ function Pizza(first, last, phone, size, veggie, meat, other) {
   this.other = other
 }
 function totalPrice(orderNum) {
-
+  let total = pizzaParlor.pizzas[orderNum].price
+  total = (total * 1.1)
+  total = total.toFixed(2);
+  total = total.toString();
+  return total;
 }
-
-function receiptHTML(orderNum) {
-  isNaN(orderNum) ? orderNum = (pizzaParlor.orderNum - 1) : true;
+function cardMojo(cardName, cardNum, cardExp, cardPin) {
+  let paid = "Payment Confirmed <br>Card: XXXX-XXXX-XXXX-1254"
+  return paid;
+}
+function receiptHTML(orderNum, paid, address, recOption) {
+  let receive = "";
+  console.log(orderNum);
   let pizza = pizzaParlor.pizzas[orderNum];
   let receipt = "Order: " + orderNum + "<br>For: " + pizza.firstName + "<br><br>" + pizza.size + " pizza";
-  let total = pizza.price;
   pizza.veggie.forEach(function(veggie) {
     receipt += "<br>" + veggie;
   });
@@ -61,9 +69,19 @@ function receiptHTML(orderNum) {
   pizza.other.forEach(function(other) {
     receipt += "<br>" + other;
   });
-  total = total.toFixed(2);
-  total = total.toString();
-  receipt += "<br><br> Total $ " + total;
+  let total = totalPrice(orderNum);
+  receipt += "<br><br> <strong>Total $ " + total + "</strong>";
+  receipt += "<br>" + paid;
+  
+  if (recOption === "delivery") {
+    receive = "Delivery will be with 30 min.<br> To: " + address; 
+  } else if (recOption === "takeout") {
+    receive = "Your order will be ready for pick in 20 min."
+  }
+  receipt += "<br><br>" + receive;
+
+  receipt += "<br><br> <strong>Thank you for your order. <br> See you next time.</strong>"
+  
   return receipt;
 }
 
@@ -93,22 +111,40 @@ $(document).ready(function() {
     
     let pizza = new Pizza(first, last, phone, size, veggie, meat, other);
     let number = pizzaParlor.addPizza(pizza);
-    
-    let receipt = receiptHTML(number);
-    
-    $("#receipt").html(receipt);
+    $("#confirmation").val(number);
+
+    let total = totalPrice(number);
+    $("#total-order").text(total);
+
+    $("#order-form").hide();
+    $("#confirm-order").show();
   });
   // order confirmation / delivery
-  $("#rec-option").click(function(event) {
+  $("#confirmation").click(function(event) {
     event.preventDefault();
+    let number = $("#confirmation").val();
+    console.log(number);
     let recOption = $("#rec-option").val();
-    let format = receive(recOption);
+    let address = 0;
+    if (recOption === "delivery") {
+      let street = $("#street").val();
+      let city = $("#city").val();
+      let zip = $("#zip").val();
+      address = street + "<br>" + city + ", " + zip;
+    }
+    let cardName = $("#ccname").val();
+    let cardNum = $("#ccnum").val();
+    let cardExp = $("#ccexp").val();
+    let cardPin = $("#ccpin").val();
+
+    let paid = cardMojo(cardName, cardNum, cardExp, cardPin);
+
+    let receipt = receiptHTML(number, paid, address, recOption);
+    
+    $("#receipt").html(receipt);
+    $("#confirm-order").hide();
+    $("#receipt").show();
   })
-  $("#confirm-order").click(function(event) {
-    event.preventDefault();
-    let recOption = $("#payment-method").val()
-  })
-  // order more
   // adjust prices for sizes
   // UI
 });
