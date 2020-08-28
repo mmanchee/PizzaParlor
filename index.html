@@ -14,12 +14,41 @@
     <div class="jumbotron">
       <h1>Plaza Pizza Parlor</h1>
     </div>
-    <form class="order-form">
-
+    <form id="order-form">
+      <div class="">
+        <label for="first-name">First Name</label>
+        <input id="first-name" type="text" class="form-control" placeholder="First name">
+        <label for="last-name">Last Name</label>
+        <input id="last-name" type="text" class="form-control" placeholder="Last name">
+        <label for="phone-number">Phone Number</label>
+        <input id="phone-number" type="text" class="form-control" placeholder="Phone number">
+      </div>
+      <h2>Pizza Menu</h2>
+      <p>Pick your size</p>
+      <select class="form-control" id="pizza-size">
+        <option value="individual">Individual 6 in</option>
+        <option value="small">Small 8 in</option>
+        <option value="medium">Medium 10 in</option>
+        <option value="large">Large 12 in</option>
+        <option value="xlarge">Plaza 15 in</option>
+      </select>
+      <div class="form-group">
+        <p>Choose your toppings</p>
+        <input type="checkbox" name="pizza-topping" value="peperoni">Peperoni<br>
+        <input type="checkbox" name="pizza-topping" value="cheese">Cheese<br>
+        <input type="checkbox" name="pizza-topping" value="olive">Olive<br>
+        <input type="checkbox" name="pizza-topping" value="sausage">Sausage<br>
+        <input type="checkbox" name="pizza-topping" value="pineapple">Pineapple<br>
+        <input type="checkbox" name="pizza-topping" value="mushroom">Mushroom<br>
+        <input type="checkbox" name="pizza-topping" value="pepper">Peppers<br>
+        <input type="checkbox" name="pizza-topping" value="onion">Onion<br>
+        <input type="checkbox" name="pizza-topping" value="ham">Ham<br>
+      </div>
+      <button type="submit" class="btn btn-info">Order</button>
     </form>
   </div>
   <div id="order-confirm">
-    
+
   </div>
   <div id="receipt">
 
