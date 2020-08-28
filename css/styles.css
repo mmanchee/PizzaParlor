@@ -5,3 +5,43 @@
 #receipt {
   display: none;
 }
+
+#pizza-img {
+ float: right;
+ margin: 10px;
+ width: 50%;
+}
+
+.pizza-back {
+  background-color: rgb(255, 199, 199)
+}
+
+body {
+  background-image: url("https://thumbs.dreamstime.com/b/hand-drawn-cartoon-pizza-slice-seamless-vector-pattern-background-74814887.jpg");
+  background-repeat: repeat;
+}
+
+#header-img {
+  width: 100%;
+  border-radius: 0 0 20px 20px;
+}
+#title1 {
+  position: absolute;
+  top: 20px;
+  left: 20%;
+}
+#title2 {
+  font-size: 90px;
+  position: absolute;
+  top: 120px;
+  left: 25%;
+}
+
+.title-text {
+  font-weight: 900;
+  font-size: 60px;
+  color: white;
+  font-style: italic;
+  border: black;
+  text-shadow: -1px 10px black, 0 1px black, 1px 0 black, 0 -1px black;
+}
