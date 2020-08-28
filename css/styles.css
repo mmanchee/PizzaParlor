@@ -55,5 +55,11 @@ body {
 
 #receipt {
   margin: 5% 20%;
-  
+  font-family: 'Times New Roman', Times, serif
+}
+
+#thankyou-img {
+  float: right;
+  width: 50%;
+  border-radius: 50px;
 }

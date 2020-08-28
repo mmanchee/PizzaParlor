@@ -141,7 +141,7 @@ $(document).ready(function() {
 
     let receipt = receiptHTML(number, paid, address, recOption);
     
-    $("#receipt").html(receipt);
+    $("#thank-you").html(receipt);
     $("#confirm-order").hide();
     $("#receipt").show();
   })
