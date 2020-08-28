@@ -146,5 +146,4 @@ $(document).ready(function() {
     $("#receipt").show();
   })
   // adjust prices for sizes
-  // UI
 });
