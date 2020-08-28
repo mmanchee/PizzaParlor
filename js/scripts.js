@@ -1,7 +1,7 @@
 // Business Logic PizzaParlor
 function PizzaParlor() {
   this.pizzas = [];
-  this.orderNumber = 0;
+  this.orderNum = 0;
 }
 
 PizzaParlor.prototype.addPizza = function(pizza) {
@@ -44,6 +44,23 @@ function Pizza(first, last, phone, size, veggie, meat, other) {
   this.other = other
 }
 
+receiptHTML(orderNum) {
+  isNaN(orderNum) ? orderNum = (pizzaParlor.orderNum - 1) : true;
+  let pizza = pizzaParlor.pizzas[orderNum];
+  let receipt = "Order: " orderNum + "<br>For: " + pizza.firstName + "<br><br>" + pizza.size + " pizza";
+  pizza.veggie.forEach(function(veggie) {
+    receipt += "<br>" + veggie;
+  });
+  pizza.meat.forEach(function(meat) {
+    receipt += "<br>" + meat;
+  });
+  pizza.other.forEach(function(other) {
+    receipt += "<br>" + other;
+  });
+  receipt += "<br><br> Total $ " + pizza.price;
+  return receipt;
+}
+
 
 let pizzaParlor = new PizzaParlor();
 
@@ -68,7 +85,7 @@ $(document).ready(function() {
     let pizza = new Pizza(first, last, phone, size, veggie, meat, other);
 
     pizzaParlor.addPizza(pizza);
-    let receipt = 
-    $()
+    let receipt = receiptHTML();
+    $("#confirm-order").html(receipt);
   });
 });
