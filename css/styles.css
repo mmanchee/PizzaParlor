@@ -1,3 +1,4 @@
+
 #confirm-order {
   display: none;
 }
@@ -20,6 +21,7 @@
 body {
   background-image: url("https://thumbs.dreamstime.com/b/hand-drawn-cartoon-pizza-slice-seamless-vector-pattern-background-74814887.jpg");
   background-repeat: repeat;
+  font-family: fantasy;
 }
 
 #header-img {
@@ -55,7 +57,6 @@ body {
 
 #receipt {
   margin: 5% 20%;
-  font-family: 'Times New Roman', Times, serif
 }
 
 #thankyou-img {
@@ -63,3 +64,7 @@ body {
   width: 50%;
   border-radius: 50px;
 }
+
+.form-check-input {
+  
+} 

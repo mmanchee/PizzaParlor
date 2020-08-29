@@ -18,70 +18,85 @@
     </div>
     <form id="order-form">
       <h3 class="card-title">Order your pizza now!</h3>
-      <div class="form-group">
-        <label for="first-name">First Name</label>
-        <input id="first-name" type="text" class="form-control" placeholder="First name">
-        <label for="last-name">Last Name</label>
-        <input id="last-name" type="text" class="form-control" placeholder="Last name">
-        <label for="phone-number">Phone Number</label>
-        <input id="phone-number" type="text" class="form-control" placeholder="Phone number">
-      </div>
-      <h2>Pizza Menu</h2>
-      <p>Pick your size</p>
-      <select class="form-control" id="pizza-size">
-        <option value="individual">Individual 6 in </option>
-        <option value="small">Small 8 in</option>
-        <option value="medium">Medium 10 in</option>
-        <option value="large">Large 12 in</option>
-        <option value="xlarge">Plaza 15 in</option>
-      </select>
       <div >
         <img id="pizza-img" src="https://usercontent1.hubstatic.com/14337024_f1024.jpg" alt="pizza">
       </div>
       <div class="form-group">
-        <p>Choose your Veggie toppings $.50 each</p>
-        <input type="checkbox" name="pizza-topping-veggie" value="avocado">Avocado<br>
-        <input type="checkbox" name="pizza-topping-veggie" value="tomato">Dried Tomato<br>
-        <input type="checkbox" name="pizza-topping-veggie" value="mushroom">Mushroom<br>
-        <input type="checkbox" name="pizza-topping-veggie" value="pepper">Peppers<br>
-        <input type="checkbox" name="pizza-topping-veggie" value="pineapple">Pineapple<br>
-        <input type="checkbox" name="pizza-topping-veggie" value="olive">Olive<br>
-        <input type="checkbox" name="pizza-topping-veggie" value="onion">Onion<br>
+        <input id="first-name" type="text" class="form-control col-5 mb-2" placeholder="First name">
+        <input id="last-name" type="text" class="form-control col-5 mb-2" placeholder="Last name">
+        <input id="phone-number" type="text" class="form-control col-5" placeholder="Phone number">
       </div>
-      <div class="form-group">
-        <p>Choose your Meat toppings $1.50 each</p>
-        <input type="checkbox" name="pizza-topping-meat" value="chicken">Chicken<br>
-        <input type="checkbox" name="pizza-topping-meat" value="ham">Canadian Bacon<br>
-        <input type="checkbox" name="pizza-topping-meat" value="peperoni">Peperoni<br>
-        <input type="checkbox" name="pizza-topping-meat" value="sausage">Sausage<br>
+      <h2>Pizza Menu</h2>
+      <h5>Pick your size</h5>
+      <select class="form-control col-5 mb-3" id="pizza-size">
+        <option value="individual">Individual 6 in - $ 4</option>
+        <option value="small">Small 8 in - $ 5</option>
+        <option value="medium">Medium 10 in - $ 7</option>
+        <option value="large">Large 12 in - $ 10</option>
+        <option value="xlarge">Plaza 15 in - $ 12</option>
+      </select>
+      
+      <h5>Choose your Veggie toppings $.50 each</h5>
+      <div class="form-group ml-5">        
+        <input class="form-check-input" type="checkbox" name="pizza-topping-veggie" value="avocado">Avocado<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-veggie" value="tomato">Dried Tomato<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-veggie" value="mushroom">Mushroom<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-veggie" value="pepper">Peppers<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-veggie" value="pineapple">Pineapple<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-veggie" value="olive">Olive<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-veggie" value="onion">Onion<br>
       </div>
-      <div class="form-group">
-        <p>Choose your Other toppings $1 each</p>
-        <input type="checkbox" name="pizza-topping-other" value="cheese">Extra Cheese<br>
-        <input type="checkbox" name="pizza-topping-other" value="feta">Feta Cheese<br>
-        <input type="checkbox" name="pizza-topping-other" value="white">White Sauce<br>
+      <h5>Choose your Meat toppings $1.50 each</h5>
+      <div class="form-group ml-5">
+        <input class="form-check-input" type="checkbox" name="pizza-topping-meat" value="chicken">Chicken<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-meat" value="ham">Canadian Bacon<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-meat" value="peperoni">Peperoni<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-meat" value="sausage">Sausage<br>
+      </div>
+      <h5>Choose your Other toppings $1 each</h5>
+      <div class="form-group ml-5">
+        <input class="form-check-input" type="checkbox" name="pizza-topping-other" value="cheese">Extra Cheese<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-other" value="feta">Feta Cheese<br>
+        <input class="form-check-input" type="checkbox" name="pizza-topping-other" value="white">White Sauce<br>
       </div>
       <button type="submit" class="btn btn-info">Order</button>
     </form>
     <div id="confirm-order">
       <div>
-        <p>How would you like to receive your order?</p>
-        <select class="form-control" id="rec-option">
+        <h5>How would you like to receive your order?</h5>
+        <select class="form-control col-5 mb-2" id="rec-option">
           <option value="delivery">Delivery</option>
           <option value="takeout">Take Out</option>
           <option value="dine" disabled>Dine In</option>
         </select>
         <div id="address-field">
-          <input class="form-control" id="street" type="text" placeholder="Street">
-          <input class="form-control" id="city" type="text" placeholder="City"><input class="form-control" id="zip" type="text" placeholder="Zip-Code">
+          <input class="form-control col-5 mb-2" id="street" type="text" placeholder="Street">
+          <div class="form-row mb-3">
+            <div class="col">
+              <input class="form-control" id="city" type="text" placeholder="City">
+            </div>
+            <div class="col">
+              <input class="form-control" id="zip" type="text" placeholder="Zip-Code">
+            </div>
+            <div class="col-7"></div>
+          </div>
         </div>
-        <p>Payment:</p>
-        <p>Your total is: $ <span id="total-order"></span> with tax.</p>
+        <h4>Payment:</h4>
+        <h5>Your total is: $ <span id="total-order"></span> with tax</h5>
         <div id="payment-field">
-          <input class="form-control" id="ccname" type="text" placeholder="Name on Card">
-          <input class="form-control" id="ccnum" type="text" placeholder="Card Number">
-          <input class="form-control" id="ccexp" type="Pin" placeholder="Exp Date">
-          <input class="form-control" id="ccpin" type="Pin" placeholder="Zip-Code">
+          <input class="form-control col-5 mb-2" id="ccname" type="text" placeholder="Name on Card">
+          <input class="form-control col-5 mb-2" id="ccnum" type="text" placeholder="Card Number">
+          <div class="form-row mb-2">
+            <div class="col">
+              <input class="form-control" id="ccexp" type="Pin" placeholder="Exp Date">
+            </div>
+            <div class="col">
+              <input class="form-control" id="ccpin" type="Pin" placeholder="Zip-Code">
+            </div>
+            <div class="col-7"></div>
+          </div>
+          
+          
         </div>
         <button class="btn btn-info" id="confirmation" type="button">Pay for Order</button>
       </div>

@@ -57,9 +57,19 @@ function cardMojo(cardName, cardNum, cardExp, cardPin) {
 }
 function receiptHTML(orderNum, paid, address, recOption) {
   let receive = "";
+  let receipt = "";
   console.log(orderNum);
   let pizza = pizzaParlor.pizzas[orderNum];
-  let receipt = "Order: " + orderNum + "<br>For: " + pizza.firstName + "<br><br>" + pizza.size + " pizza";
+
+  if (recOption === "delivery") {
+    receive = "We will deliver your order within 30 min.<br> To: " + address; 
+  } else if (recOption === "takeout") {
+    receive = "Your order will be ready for pick in 20 min.";
+  }
+  console.log(receive);
+  receipt += receive;
+  console.log(receipt);
+  receipt += "<br><br>Order: " + orderNum + "<br>For: " + pizza.firstName + "<br><br>" + pizza.size + " pizza";
   pizza.veggie.forEach(function(veggie) {
     receipt += "<br>" + veggie;
   });
@@ -72,15 +82,8 @@ function receiptHTML(orderNum, paid, address, recOption) {
   let total = totalPrice(orderNum);
   receipt += "<br><br> <strong>Total $ " + total + "</strong>";
   receipt += "<br>" + paid;
-  
-  if (recOption === "delivery") {
-    receive = "Delivery will be with 30 min.<br> To: " + address; 
-  } else if (recOption === "takeout") {
-    receive = "Your order will be ready for pick in 20 min."
-  }
-  receipt += "<br><br>" + receive;
 
-  receipt += "<br><br> <strong>Thank you for your order. <br> See you next time.</strong>"
+  receipt += "<br><br> <strong>Thank you for your order. <br> See you next time.</strong>";
   
   return receipt;
 }
