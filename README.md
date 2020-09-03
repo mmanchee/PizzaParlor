@@ -1,4 +1,4 @@
-# _Application Name_
+# _Plaza Pizza Parlor_
 
 #### _Week 4 Solo Project for Epicodus, August 28th, 2020_
 
@@ -6,7 +6,7 @@
 
 ## Description
 
-A website for people to order a pizza with a selection of toppings.
+A website for people to order a pizza with a selection of toppings. This project uses constructors to create a simulated ordering process for requesting a pizza from Plaza Pizza Parlor. Two object constructors were built 1. to create an order with; Name, Pizza size and Toppings and 2. to create a ordering queue for multiple single orders. Delivery and takeout systems were added later with a receipt, pricing and order payment. 
 
 ### Specs
 | Spec | Input | Output |
@@ -22,20 +22,21 @@ A website for people to order a pizza with a selection of toppings.
 
 
 ## Setup/Installation Requirements
+* Download option
+  * Download files from GitHub repository by click Code and Download Zip
+  * Extract files into a single directory 
+  * Open index.html in the browser of choice
+  * Have fun with Plaza Pizza Parlor!
 
-* Download files from GitHub repository
-* Place all files in a single directory 
-* Open index.html in browser of choice
-* Have for with Pig Dice
-
+* Cloning options
+  * For cloning please use the following GitHub [tutorial](https://docs.github.com/en/enterprise/2.16/user/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
 ## Known Bugs
-
-
-## Support and contact details
-
+ No known bugs in this project
 
 ## Technologies Used
+
+This project uses constructors in Javascript
 
 * HTML
 * CSS
@@ -45,6 +46,7 @@ A website for people to order a pizza with a selection of toppings.
 
 ### Other Links
 [GitHub](https://github.com/mmanchee)
+[Portfolio](https://mmanchee.github.io/portfolio/)
 
 ### License
 

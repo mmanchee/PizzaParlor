@@ -58,7 +58,6 @@ function cardMojo(cardName, cardNum, cardExp, cardPin) {
 function receiptHTML(orderNum, paid, address, recOption) {
   let receive = "";
   let receipt = "";
-  console.log(orderNum);
   let pizza = pizzaParlor.pizzas[orderNum];
 
   if (recOption === "delivery") {
@@ -66,9 +65,7 @@ function receiptHTML(orderNum, paid, address, recOption) {
   } else if (recOption === "takeout") {
     receive = "Your order will be ready for pick in 20 min.";
   }
-  console.log(receive);
   receipt += receive;
-  console.log(receipt);
   receipt += "<br><br>Order: " + orderNum + "<br>For: " + pizza.firstName + "<br><br>" + pizza.size + " pizza";
   pizza.veggie.forEach(function(veggie) {
     receipt += "<br>" + veggie;
@@ -87,7 +84,6 @@ function receiptHTML(orderNum, paid, address, recOption) {
   
   return receipt;
 }
-
 
 let pizzaParlor = new PizzaParlor();
 
@@ -122,19 +118,20 @@ $(document).ready(function() {
     $("#order-form").hide();
     $("#confirm-order").show();
   });
-  // order confirmation / delivery
+
   $("#confirmation").click(function(event) {
     event.preventDefault();
     let number = $("#confirmation").val();
-    console.log(number);
     let recOption = $("#rec-option").val();
     let address = 0;
+
     if (recOption === "delivery") {
       let street = $("#street").val();
       let city = $("#city").val();
       let zip = $("#zip").val();
       address = street + "<br>" + city + ", " + zip;
     }
+
     let cardName = $("#ccname").val();
     let cardNum = $("#ccnum").val();
     let cardExp = $("#ccexp").val();
@@ -148,5 +145,4 @@ $(document).ready(function() {
     $("#confirm-order").hide();
     $("#receipt").show();
   })
-  // adjust prices for sizes
 });
