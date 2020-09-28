@@ -4,6 +4,8 @@
 
 #### By _**Mike Manchee**_
 
+#### #### Published at: [Plaza Pizza Parlor](https://mmanchee.github.io/PizzaParlor/)
+
 ## Description
 
 A website for people to order a pizza with a selection of toppings. This project uses constructors to create a simulated ordering process for requesting a pizza from Plaza Pizza Parlor. Two object constructors were built 1. to create an order with; Name, Pizza size and Toppings and 2. to create a ordering queue for multiple single orders. Delivery and takeout systems were added later with a receipt, pricing and order payment. 
